@@ -8,9 +8,7 @@ before_install:
   - sudo apt-get install -qq libsqlite3-dev libxml2 libxml2-dev libssl-dev libbz2-dev wget curl llvm
   - export DJANGO_SETTINGS_MODULE=config.settings.cicd
   - export PIP_USE_MIRRORS=true
-
-env:
-  - TRAVIS=true
+  - export TRAVIS=True
 
 language: python
 
