@@ -2,6 +2,8 @@
 With these settings, tests run faster.
 """
 
+import os
+
 from .base import *  # noqa
 from .base import env
 
@@ -57,3 +59,14 @@ EMAIL_PORT = 1025
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+if os.getenv('TRAVIS', True):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'travisci',
+            'USER': 'postgres',
+            'PASSWORD': '',
+            'HOST': 'localhost',
+            'PORT': '',
+        }
+    }
